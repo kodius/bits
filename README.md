@@ -1,9 +1,17 @@
 ### Set up project
 
-```git clone https://github.com/kodius/bits.git```
-```cd bits```
-```gem install bundler```
-```bundle install```
+```
+git clone https://github.com/kodius/bits.git
+```
+```
+cd bits
+```
+```
+gem install bundler
+```
+```
+bundle install
+```
 
 Ruby version is 2.4.0
 
