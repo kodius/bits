@@ -28,6 +28,8 @@
 
 .site-nav {
   float: right;
+  position: relative;
+  z-index: 10;
   line-height: $base-line-height * $base-font-size * 2.25;
 
   .nav-trigger {
@@ -62,6 +64,12 @@
     border-radius: 5px;
     text-align: right;
 
+    .side-nav {
+      background-color: #353535;
+      border-radius: 0;
+      border: solid 1px #242424;
+    }
+
     label[for="nav-trigger"] {
       display: block;
       float: right;
@@ -81,7 +89,7 @@
       text-align: center;
 
       > svg path {
-        fill: $grey-color-dark;
+        fill: white;
       }
     }
 
@@ -101,6 +109,7 @@
     .page-link {
       display: block;
       padding: 10px 10px;
+      color: white;
 
       &:last-child {
         margin-bottom: 10px;
