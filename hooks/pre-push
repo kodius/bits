@@ -1,0 +1,19 @@
+#!/bin/bash
+
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+
+if [[ "$BRANCH" == "master" ]] ; then
+  echo -e "Pushing to master and s3 bucket\n\n"
+  
+  echo -e "$ > jekyll build\n"
+  jekyll build
+  echo -e "\n"
+
+  echo -e "$ > ./bin/s3cmd put --recursive _site/ $BITS_AWS_BUCKET\n"
+  ./bin/s3cmd put --recursive ./_site/ $BITS_AWS_BUCKET
+  echo -e "\n"
+
+  echo -e "$ > ./bin/s3cmd setacl $BITS_AWS_BUCKET --recursive --acl-public\n"
+  ./bin/s3cmd setacl $BITS_AWS_BUCKET --recursive --acl-public
+  echo -e "\n"
+fi
